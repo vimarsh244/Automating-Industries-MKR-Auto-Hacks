@@ -37,16 +37,16 @@ Adafruit_BME280 bme; // I2C
 
 /************************* WiFi Access Point *********************************/
 
-char ssid[] = "ProV";        // your network SSID (name)
-char pass[] = "vimarshprojects";    // your network password (use for WPA, or use as key for WEP)
+char ssid[] = "$Your_SSID$";        // your network SSID (name)
+char pass[] = "$Your_PSK$";    // your network password (use for WPA, or use as key for WEP)
 
 /************************* Adafruit.io Setup *********************************/
 
-#define MQTT_SERVER      "192.168.0.11"
+#define MQTT_SERVER      "192.168.1.114"       //your brokers iP Adress
 #define MQTT_SERVERPORT  1883                   // use 8883 for SSL
-#define MQTT_USERNAME    "pi"
-#define MQTT_KEY         "vashah2004"
-#define PROJECT_NAME "project/"
+#define MQTT_USERNAME    ""     //username for your broker if set
+#define MQTT_KEY         ""     //its password
+#define PROJECT_NAME "project/" //not at all necessary
 
 const char broker[] = MQTT_SERVER;
 const char topic[]  = PROJECT_NAME;
@@ -63,7 +63,7 @@ void setup() {
   Serial.println("Please input something to continue");
   while (!Serial.available());
   Serial.println("Program Started");
-  gas.begin(0x4D);
+  gas.begin(0x4D); // your sensors i2c adress
   gas.powerOn();
   Serial.print("Firmware Version = ");
   Serial.println(gas.getVersion());
@@ -155,6 +155,7 @@ void loop() {
   bmes();
   gmgs();
   ifs();
+  //methods to check all things
   Serial.println();
 
   delay(interval);
@@ -183,7 +184,7 @@ void gmgs()
   Serial.println(" ppm");
   mqttClient.beginMessage("project/co");
   mqttClient.print(c);
-  mqttClient.endMessage
+  mqttClient.endMessage();
   if(c>175)
     condition++;
 
@@ -303,14 +304,14 @@ void bmes() {
   mqttClient.endMessage();
 
 }
-ifs(){
+void ifs(){
   // send packet: id is 11 bits, packet can contain up to 8 bytes of data
   Serial.print("Sending packet ... ");
 
   CAN.beginPacket(0x19);
   CAN.write(condition);
-  condion=0;
+  condition=0;
   CAN.endPacket();
 
   Serial.println("done");
-n b}
+}
