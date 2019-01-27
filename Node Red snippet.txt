@@ -1,0 +1,831 @@
+[
+    {
+        "id": "d8a0a527.e0b6d",
+        "type": "tab",
+        "label": "Project",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "eea04ae5.cddae8",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "Temperature",
+        "topic": "project/temp",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "efccad7d.149eb8",
+                "71c69fe4.ce6e78"
+            ]
+        ]
+    },
+    {
+        "id": "efccad7d.149eb8",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "9e915e4f.b9c06",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 400,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "71c69fe4.ce6e78",
+        "type": "ui_chart",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "66669da2.72d754",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Weather",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Weather Data",
+        "dot": false,
+        "ymin": "-1",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 660,
+        "y": 220,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f4aa0761.5bf318",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "Humidity",
+        "topic": "project/h",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "8d8715b6.19854",
+                "71c69fe4.ce6e78"
+            ]
+        ]
+    },
+    {
+        "id": "8d8715b6.19854",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "9e915e4f.b9c06",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "gtype": "wave",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 390,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a1448cb7.7792d",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "Barometeric Pressure",
+        "topic": "project/p",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "cd073b6d.18fb",
+                "71c69fe4.ce6e78"
+            ]
+        ]
+    },
+    {
+        "id": "cd073b6d.18fb",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "9e915e4f.b9c06",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "gtype": "compass",
+        "title": "Barometeric Pressure",
+        "label": "Bar",
+        "format": "{{value}}",
+        "min": "100",
+        "max": "150",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 430,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d7689840.05039",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "Total VOC",
+        "topic": "project/tvoc",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "ffc28f8c.5a3cc",
+                "63397e69.086a28"
+            ]
+        ]
+    },
+    {
+        "id": "ffc28f8c.5a3cc",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f3ea7fef.204358",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "gtype": "donut",
+        "title": "Toatal VOC",
+        "label": "ppb",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "80",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 400,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "9efedbd.c5d2aa8",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "CO2 (eq)",
+        "topic": "project/eco2",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "4714e57d.a1dadc",
+                "63397e69.086a28"
+            ]
+        ]
+    },
+    {
+        "id": "4714e57d.a1dadc",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f3ea7fef.204358",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "gtype": "donut",
+        "title": "eCarbon Dioxide",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": "300",
+        "max": "1800",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 420,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "52442256.81f72c",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "topic": "project/nh3",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 120,
+        "y": 440,
+        "wires": [
+            [
+                "c8305955.f11338",
+                "fb20aa9c.f30e08"
+            ]
+        ]
+    },
+    {
+        "id": "c8305955.f11338",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f72f2344.3e2a28",
+        "order": 7,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Ammonia",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 380,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5c22386c.f8dde8",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "topic": "project/co",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 110,
+        "y": 480,
+        "wires": [
+            [
+                "f1d9ac4.ee5975"
+            ]
+        ]
+    },
+    {
+        "id": "f1d9ac4.ee5975",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f72f2344.3e2a28",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Carbon Monooxide",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 410,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "db98cbac.1e55c",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "topic": "project/no2",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "2d505aa9.ea8e0e"
+            ]
+        ]
+    },
+    {
+        "id": "2d505aa9.ea8e0e",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f72f2344.3e2a28",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Nitrogen Dioxide",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 400,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "b51aafed.1da26",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "topic": "project/c3h8",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 120,
+        "y": 560,
+        "wires": [
+            [
+                "5d67f6fa.ab983",
+                "fb20aa9c.f30e08"
+            ]
+        ]
+    },
+    {
+        "id": "5d67f6fa.ab983",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f72f2344.3e2a28",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Propane",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 380,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "aefbd41b.489198",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "topic": "project/c4h10",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 120,
+        "y": 600,
+        "wires": [
+            [
+                "cc20ede8.a6d9f",
+                "fb20aa9c.f30e08"
+            ]
+        ]
+    },
+    {
+        "id": "cc20ede8.a6d9f",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f72f2344.3e2a28",
+        "order": 6,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Butane",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 380,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "2e2c0a3d.7e1326",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "topic": "project/ch4",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 110,
+        "y": 640,
+        "wires": [
+            [
+                "4f927b86.c286c4",
+                "fb20aa9c.f30e08"
+            ]
+        ]
+    },
+    {
+        "id": "4f927b86.c286c4",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f72f2344.3e2a28",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Methane",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 380,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "229f6503.923362",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "topic": "project/h2",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 110,
+        "y": 680,
+        "wires": [
+            [
+                "98dea13b.1612f",
+                "fb20aa9c.f30e08"
+            ]
+        ]
+    },
+    {
+        "id": "98dea13b.1612f",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f72f2344.3e2a28",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Hydrogen gas",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 400,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "77275c67.13d82c",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "topic": "project/c2h5oh",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 130,
+        "y": 720,
+        "wires": [
+            [
+                "2ab35cba.5247d4",
+                "fb20aa9c.f30e08"
+            ]
+        ]
+    },
+    {
+        "id": "2ab35cba.5247d4",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "f72f2344.3e2a28",
+        "order": 8,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Ethanol",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 380,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "3ec1f58.4e0e70a",
+        "type": "mqtt in",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "topic": "project/extra",
+        "qos": "2",
+        "broker": "e4c45639.ec116",
+        "x": 120,
+        "y": 760,
+        "wires": [
+            [
+                "85184d05.c120e8"
+            ]
+        ]
+    },
+    {
+        "id": "85184d05.c120e8",
+        "type": "ui_gauge",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "3b89edb5.c2c23a",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "gtype": "donut",
+        "title": "Extra",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 370,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "63397e69.086a28",
+        "type": "ui_chart",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "66669da2.72d754",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Imp. Gases",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Gas Concentrations",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 690,
+        "y": 340,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "fb20aa9c.f30e08",
+        "type": "ui_chart",
+        "z": "d8a0a527.e0b6d",
+        "name": "",
+        "group": "66669da2.72d754",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Other Gases",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Gas Concentration",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 790,
+        "y": 600,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e4c45639.ec116",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "RPi Local",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "9e915e4f.b9c06",
+        "type": "ui_group",
+        "z": "",
+        "name": "Atmospheric Weather",
+        "tab": "8b792716.f48f88",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "66669da2.72d754",
+        "type": "ui_group",
+        "z": "",
+        "name": "History",
+        "tab": "8b792716.f48f88",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f3ea7fef.204358",
+        "type": "ui_group",
+        "z": "",
+        "name": "Gas Contents",
+        "tab": "8b792716.f48f88",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f72f2344.3e2a28",
+        "type": "ui_group",
+        "z": "",
+        "name": "Other Gases",
+        "tab": "8b792716.f48f88",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "3b89edb5.c2c23a",
+        "type": "ui_group",
+        "z": "",
+        "name": "Others",
+        "tab": "4186dad.6ef4f24",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8b792716.f48f88",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Project",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "4186dad.6ef4f24",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Testing",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
